@@ -1,5 +1,15 @@
 [
   {
+    "id": "devrel-system",
+    "title": "DevRel: от хайпа к системе",
+    "description": "3 столпа DevRel (Awareness, Activation, Retention) и 5 практических действий для построения системного DevRel.",
+    "category": "devrel",
+    "date": "2026-05-06",
+    "color": "#a78bfa",
+    "slides": 3,
+    "url": "presentations/2026-05-06-devrel-system/"
+  },
+  {
     "id": "devrel-strategy-2025",
     "title": "DevRel Strategy 2025",
     "description": "Как строить сообщество разработчиков вокруг технобренда. Метрики, каналы, форматы контента.",
