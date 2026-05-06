@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VTech Presentations</title>
+<meta name="description" content="Все презентации технобренда VTech — DevRel, AI, Community">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+:root{
+  --accent:#00F5C4;
+  --accent2:#7B61FF;
+  --bg:#0A0E1A;
+  --card:#0D1B2A;
+  --card2:#111D2E;
+  --text:#E8ECEF;
+  --muted:#8899A6;
+  --border:rgba(0,245,196,0.12);
+  --shadow:0 0 40px rgba(0,245,196,0.06);
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --radius:12px;
+  --radius-lg:20px;
+}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;}
+img,svg{display:block;max-width:100%;}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit;}
+a{color:inherit;text-decoration:none;}
+
+/* Layout */
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,5vw,3rem);}
+
+/* Nav */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,14,26,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:1rem 0;
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:0.6rem;}
+.logo svg{width:36px;height:36px;}
+.logo-text{font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:0.04em;color:var(--accent);}
+.nav-links{display:flex;gap:1.5rem;}
+.nav-links a{font-size:0.9rem;color:var(--muted);transition:color 0.2s;}
+.nav-links a:hover{color:var(--accent);}
+
+/* Hero */
+.hero{
+  padding:clamp(4rem,10vw,8rem) 0 clamp(3rem,6vw,5rem);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;top:-200px;right:-200px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(0,245,196,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-label{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent);font-family:var(--font-display);font-weight:600;
+  border:1px solid var(--border);border-radius:99px;
+  padding:0.3em 1em;margin-bottom:1.5rem;
+}
+.hero-label::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2.5rem,5vw,5rem);
+  line-height:1.1;letter-spacing:-0.03em;
+  max-width:16ch;
+}
+.hero h1 span{color:var(--accent);}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:52ch;margin-top:1.2rem;line-height:1.7;}
+.hero-actions{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.65em 1.4em;border-radius:8px;
+  font-family:var(--font-display);font-weight:600;font-size:0.95rem;
+  transition:all 0.2s;
+}
+.btn-primary{
+  background:var(--accent);color:var(--bg);
+}
+.btn-primary:hover{background:#00dbb1;transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,245,196,0.3);}
+.btn-ghost{
+  border:1px solid var(--border);color:var(--text);
+}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,245,196,0.05);}
+
+/* Stats */
+.stats{display:flex;gap:3rem;margin-top:3rem;flex-wrap:wrap;}
+.stat-item{display:flex;flex-direction:column;gap:0.2rem;}
+.stat-num{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--accent);}
+.stat-label{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
+
+/* Section */
+.section{padding:clamp(3rem,6vw,6rem) 0;}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem;}
+.section-title{font-family:var(--font-display);font-weight:600;font-size:clamp(1.3rem,2.5vw,1.8rem);letter-spacing:-0.01em;}
+.section-title span{color:var(--accent);}
+.count-badge{font-size:0.8rem;color:var(--muted);border:1px solid var(--border);padding:0.2em 0.8em;border-radius:99px;}
+
+/* Presentation grid */
+.pres-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:1.5rem;}
+.pres-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;
+  cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;
+}
+.pres-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(0,245,196,0.3);}
+.pres-card-img{
+  aspect-ratio:16/9;background:var(--card2);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  background-size:cover;background-position:center;
+}
+.pres-card-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,245,196,0.08),rgba(123,97,255,0.08));
+}
+.pres-placeholder{
+  font-family:var(--font-display);font-size:3rem;font-weight:700;
+  color:rgba(0,245,196,0.15);letter-spacing:-0.04em;
+}
+.slides-badge{
+  position:absolute;top:0.75rem;right:0.75rem;z-index:2;
+  font-size:0.7rem;font-family:var(--font-display);font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;
+  background:rgba(10,14,26,0.8);color:var(--accent);
+  padding:0.25em 0.6em;border-radius:6px;
+  backdrop-filter:blur(8px);border:1px solid var(--border);
+}
+.pres-card-body{padding:1.25rem 1.5rem;}
+.pres-card-meta{display:flex;gap:0.75rem;align-items:center;margin-bottom:0.6rem;}
+.pres-date{font-size:0.78rem;color:var(--muted);font-family:var(--font-display);}
+.pres-event{font-size:0.72rem;color:var(--accent2);background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.2);padding:0.1em 0.5em;border-radius:4px;font-family:var(--font-display);font-weight:600;letter-spacing:0.04em;}
+.pres-title{font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin-bottom:0.5rem;line-height:1.3;}
+.pres-desc{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.9rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.pres-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.tag{font-size:0.7rem;font-family:var(--font-display);font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);background:rgba(0,245,196,0.08);border:1px solid var(--border);padding:0.2em 0.6em;border-radius:4px;}
+
+/* Empty state */
+.empty-state{
+  grid-column:1/-1;
+  padding:4rem 2rem;text-align:center;
+  border:1px dashed var(--border);border-radius:var(--radius-lg);
+  color:var(--muted);
+}
+.empty-state p{font-size:0.95rem;line-height:1.8;}
+
+/* How it works */
+.how-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:clamp(2rem,4vw,3.5rem);margin:clamp(2rem,4vw,4rem) 0;}
+.how-title{font-family:var(--font-display);font-weight:700;font-size:1.4rem;margin-bottom:2rem;}
+.how-title span{color:var(--accent);}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}
+.step{display:flex;flex-direction:column;gap:0.5rem;}
+.step-num{width:36px;height:36px;border-radius:8px;background:rgba(0,245,196,0.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;color:var(--accent);font-size:0.9rem;}
+.step-label{font-family:var(--font-display);font-weight:600;font-size:0.95rem;}
+.step-desc{font-size:0.83rem;color:var(--muted);line-height:1.6;}
+.step-arrow{display:none;}
+@media(min-width:768px){
+  .step{position:relative;}
+  .step:not(:last-child)::after{content:'→';position:absolute;right:-0.8rem;top:0.6rem;color:var(--border);font-size:1.2rem;}
+}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.footer-copy{font-size:0.82rem;color:var(--muted);}
+.footer-link{font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;transition:color 0.2s;}
+.footer-link:hover{color:var(--accent);}
+
+/* Responsive */
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .stats{gap:1.5rem;}
+  .section-header{flex-direction:column;align-items:flex-start;gap:0.5rem;}
+  .footer-inner{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <div class="logo">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="VTech logo">
+          <rect width="36" height="36" rx="8" fill="rgba(0,245,196,0.08)"/>
+          <path d="M8 11L14 25L18 16L22 25L28 11" stroke="#00F5C4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="14" y="8" width="8" height="2" rx="1" fill="rgba(0,245,196,0.4)"/>
+        </svg>
+        <span class="logo-text">V·TECH</span>
+      </div>
+      <div class="nav-links">
+        <a href="#presentations">Презентации</a>
+        <a href="#how-it-works">Как это работает</a>
+        <a href="https://github.com/olegbuselru/vtech-presentations" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-label">Технобренд VTech</div>
+      <h1>Все <span>презентации</span><br>в одном месте</h1>
+      <p class="hero-sub">Слайды с митапов, воркшопов и ивентов VTech. Каждая новая презентация появляется автоматически — через Perplexity + GitHub Pull Request.</p>
+      <div class="hero-actions">
+        <a href="#presentations" class="btn btn-primary">Смотреть презентации</a>
+        <a href="https://github.com/olegbuselru/vtech-presentations" target="_blank" rel="noopener" class="btn btn-ghost">GitHub репо</a>
+      </div>
+      <div class="stats">
+        <div class="stat-item"><span class="stat-num" id="statCount">1</span><span class="stat-label">Презентация</span></div>
+        <div class="stat-item"><span class="stat-num">AI</span><span class="stat-label">Генерация</span></div>
+        <div class="stat-item"><span class="stat-num">Auto</span><span class="stat-label">Деплой</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="presentations">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Презентации <span>VTech</span></h2>
+        <span class="count-badge" id="countBadge">1 слайд-дек</span>
+      </div>
+      <div class="pres-grid">
+        <!-- PRESENTATIONS_START -->
+<article class="pres-card" onclick="window.open('presentations/2026-05-06-vtech-intro/index.html','_blank')">
+  <div class="pres-card-img" aria-label="Что такое VTech: технобренд нового поколения">
+    <span class="pres-placeholder">VT</span>
+    <span class="slides-badge">12 slides</span>
+  </div>
+  <div class="pres-card-body">
+    <div class="pres-card-meta">
+      <span class="pres-date">2026-05-06</span>
+      <span class="pres-event">VTech Launch</span>
+    </div>
+    <h3 class="pres-title">Что такое VTech: технобренд нового поколения</h3>
+    <p class="pres-desc">Вводная презентация о миссии, ценностях и направлениях VTech — девелопер-сообщества с AI-фокусом.</p>
+    <div class="pres-tags"><span class="tag">VTech</span> <span class="tag">DevRel</span> <span class="tag">AI</span> <span class="tag">Community</span></div>
+  </div>
+</article>
+<!-- PRESENTATIONS_END -->
+      </div>
+    </div>
+  </section>
+
+  <div class="container" id="how-it-works">
+    <div class="how-section">
+      <div class="how-title">Как добавить новую <span>презентацию</span></div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-label">Даёшь задачу Perplexity</div>
+          <div class="step-desc">Ссылка на этот репо + описание новой презентации (тема, ивент, ключевые тезисы)</div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-label">Perplexity читает DESIGN.md</div>
+          <div class="step-desc">Агент забирает дизайн-гайд, создаёт HTML-презентацию в стиле VTech через Reveal.js</div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-label">Pull Request в GitHub</div>
+          <div class="step-desc">Perplexity создаёт PR с новой папкой presentations/ и meta.json</div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-label">Merge → Автодеплой</div>
+          <div class="step-desc">После принятия PR — GitHub Actions деплоит сайт на GitHub Pages автоматически</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 VTech — Технобренд девелопер-сообщества</span>
+      <a href="https://github.com/olegbuselru/vtech-presentations" target="_blank" rel="noopener" class="footer-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        olegbuselru/vtech-presentations
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
