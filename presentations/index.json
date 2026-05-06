@@ -1,0 +1,42 @@
+[
+  {
+    "id": "devrel-strategy-2025",
+    "title": "DevRel Strategy 2025",
+    "description": "Как строить сообщество разработчиков вокруг технобренда. Метрики, каналы, форматы контента.",
+    "category": "devrel",
+    "date": "2025-11-15",
+    "color": "#7c6af5",
+    "slides": 24,
+    "url": "presentations/devrel-strategy-2025/"
+  },
+  {
+    "id": "llm-agents-intro",
+    "title": "LLM Agents: Введение",
+    "description": "Обзор архитектур AI-агентов, паттерны использования, примеры на n8n и LangGraph.",
+    "category": "ai",
+    "date": "2025-12-10",
+    "color": "#00d4aa",
+    "slides": 18,
+    "url": "presentations/llm-agents-intro/"
+  },
+  {
+    "id": "meetup-formats",
+    "title": "Форматы митапов ВИ.ТЕХ",
+    "description": "Как проводить технические мероприятия: от онлайн-разборов до офлайн-конференций.",
+    "category": "community",
+    "date": "2026-01-20",
+    "color": "#f59e0b",
+    "slides": 15,
+    "url": "presentations/meetup-formats/"
+  },
+  {
+    "id": "mcp-servers-deep-dive",
+    "title": "MCP Servers Deep Dive",
+    "description": "Model Context Protocol: как работает, зачем нужен, как писать свои серверы.",
+    "category": "dev",
+    "date": "2026-03-05",
+    "color": "#34d399",
+    "slides": 31,
+    "url": "presentations/mcp-servers-deep-dive/"
+  }
+]

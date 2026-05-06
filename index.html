@@ -3,297 +3,412 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VTech Presentations</title>
-<meta name="description" content="Все презентации технобренда VTech — DevRel, AI, Community">
+<title>ВИ.Тех — Презентации технобренда</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-:root{
-  --accent:#00F5C4;
-  --accent2:#7B61FF;
-  --bg:#0A0E1A;
-  --card:#0D1B2A;
-  --card2:#111D2E;
-  --text:#E8ECEF;
-  --muted:#8899A6;
-  --border:rgba(0,245,196,0.12);
-  --shadow:0 0 40px rgba(0,245,196,0.06);
-  --font-display:'Space Grotesk',sans-serif;
-  --font-body:'Inter',sans-serif;
-  --radius:12px;
-  --radius-lg:20px;
-}
-body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;}
-img,svg{display:block;max-width:100%;}
-button{cursor:pointer;border:none;background:none;font:inherit;color:inherit;}
-a{color:inherit;text-decoration:none;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Layout */
-.container{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,5vw,3rem);}
-
-/* Nav */
-nav{
-  position:sticky;top:0;z-index:100;
-  background:rgba(10,14,26,0.85);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  padding:1rem 0;
-}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;}
-.logo{display:flex;align-items:center;gap:0.6rem;}
-.logo svg{width:36px;height:36px;}
-.logo-text{font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:0.04em;color:var(--accent);}
-.nav-links{display:flex;gap:1.5rem;}
-.nav-links a{font-size:0.9rem;color:var(--muted);transition:color 0.2s;}
-.nav-links a:hover{color:var(--accent);}
-
-/* Hero */
-.hero{
-  padding:clamp(4rem,10vw,8rem) 0 clamp(3rem,6vw,5rem);
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';
-  position:absolute;top:-200px;right:-200px;
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(0,245,196,0.06) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hero-label{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--accent);font-family:var(--font-display);font-weight:600;
-  border:1px solid var(--border);border-radius:99px;
-  padding:0.3em 1em;margin-bottom:1.5rem;
-}
-.hero-label::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.hero h1{
-  font-family:var(--font-display);font-weight:700;
-  font-size:clamp(2.5rem,5vw,5rem);
-  line-height:1.1;letter-spacing:-0.03em;
-  max-width:16ch;
-}
-.hero h1 span{color:var(--accent);}
-.hero-sub{font-size:1.1rem;color:var(--muted);max-width:52ch;margin-top:1.2rem;line-height:1.7;}
-.hero-actions{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
-.btn{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  padding:0.65em 1.4em;border-radius:8px;
-  font-family:var(--font-display);font-weight:600;font-size:0.95rem;
-  transition:all 0.2s;
-}
-.btn-primary{
-  background:var(--accent);color:var(--bg);
-}
-.btn-primary:hover{background:#00dbb1;transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,245,196,0.3);}
-.btn-ghost{
-  border:1px solid var(--border);color:var(--text);
-}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,245,196,0.05);}
-
-/* Stats */
-.stats{display:flex;gap:3rem;margin-top:3rem;flex-wrap:wrap;}
-.stat-item{display:flex;flex-direction:column;gap:0.2rem;}
-.stat-num{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--accent);}
-.stat-label{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
-
-/* Section */
-.section{padding:clamp(3rem,6vw,6rem) 0;}
-.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem;}
-.section-title{font-family:var(--font-display);font-weight:600;font-size:clamp(1.3rem,2.5vw,1.8rem);letter-spacing:-0.01em;}
-.section-title span{color:var(--accent);}
-.count-badge{font-size:0.8rem;color:var(--muted);border:1px solid var(--border);padding:0.2em 0.8em;border-radius:99px;}
-
-/* Presentation grid */
-.pres-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:1.5rem;}
-.pres-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--radius-lg);overflow:hidden;
-  cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;
-}
-.pres-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(0,245,196,0.3);}
-.pres-card-img{
-  aspect-ratio:16/9;background:var(--card2);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-  background-size:cover;background-position:center;
-}
-.pres-card-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(0,245,196,0.08),rgba(123,97,255,0.08));
-}
-.pres-placeholder{
-  font-family:var(--font-display);font-size:3rem;font-weight:700;
-  color:rgba(0,245,196,0.15);letter-spacing:-0.04em;
-}
-.slides-badge{
-  position:absolute;top:0.75rem;right:0.75rem;z-index:2;
-  font-size:0.7rem;font-family:var(--font-display);font-weight:600;
-  letter-spacing:0.06em;text-transform:uppercase;
-  background:rgba(10,14,26,0.8);color:var(--accent);
-  padding:0.25em 0.6em;border-radius:6px;
-  backdrop-filter:blur(8px);border:1px solid var(--border);
-}
-.pres-card-body{padding:1.25rem 1.5rem;}
-.pres-card-meta{display:flex;gap:0.75rem;align-items:center;margin-bottom:0.6rem;}
-.pres-date{font-size:0.78rem;color:var(--muted);font-family:var(--font-display);}
-.pres-event{font-size:0.72rem;color:var(--accent2);background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.2);padding:0.1em 0.5em;border-radius:4px;font-family:var(--font-display);font-weight:600;letter-spacing:0.04em;}
-.pres-title{font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin-bottom:0.5rem;line-height:1.3;}
-.pres-desc{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.9rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.pres-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
-.tag{font-size:0.7rem;font-family:var(--font-display);font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);background:rgba(0,245,196,0.08);border:1px solid var(--border);padding:0.2em 0.6em;border-radius:4px;}
-
-/* Empty state */
-.empty-state{
-  grid-column:1/-1;
-  padding:4rem 2rem;text-align:center;
-  border:1px dashed var(--border);border-radius:var(--radius-lg);
-  color:var(--muted);
-}
-.empty-state p{font-size:0.95rem;line-height:1.8;}
-
-/* How it works */
-.how-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:clamp(2rem,4vw,3.5rem);margin:clamp(2rem,4vw,4rem) 0;}
-.how-title{font-family:var(--font-display);font-weight:700;font-size:1.4rem;margin-bottom:2rem;}
-.how-title span{color:var(--accent);}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}
-.step{display:flex;flex-direction:column;gap:0.5rem;}
-.step-num{width:36px;height:36px;border-radius:8px;background:rgba(0,245,196,0.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;color:var(--accent);font-size:0.9rem;}
-.step-label{font-family:var(--font-display);font-weight:600;font-size:0.95rem;}
-.step-desc{font-size:0.83rem;color:var(--muted);line-height:1.6;}
-.step-arrow{display:none;}
-@media(min-width:768px){
-  .step{position:relative;}
-  .step:not(:last-child)::after{content:'→';position:absolute;right:-0.8rem;top:0.6rem;color:var(--border);font-size:1.2rem;}
+:root {
+  --font-display: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    7rem);
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem;
+  --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+  --radius-sm: 0.25rem; --radius-md: 0.5rem;
+  --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
+  --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Footer */
-footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
-.footer-copy{font-size:0.82rem;color:var(--muted);}
-.footer-link{font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;transition:color 0.2s;}
-.footer-link:hover{color:var(--accent);}
-
-/* Responsive */
-@media(max-width:640px){
-  .nav-links{display:none;}
-  .stats{gap:1.5rem;}
-  .section-header{flex-direction:column;align-items:flex-start;gap:0.5rem;}
-  .footer-inner{flex-direction:column;text-align:center;}
+[data-theme="dark"] {
+  --color-bg: #0d0d10;
+  --color-surface: #131318;
+  --color-surface-2: #1a1a22;
+  --color-surface-offset: #1f1f2a;
+  --color-divider: #2a2a38;
+  --color-border: #32323f;
+  --color-text: #e8e8f0;
+  --color-text-muted: #8888a0;
+  --color-text-faint: #44445a;
+  --color-primary: #7c6af5;
+  --color-primary-hover: #9d8fff;
+  --color-primary-glow: rgba(124,106,245,0.15);
+  --color-accent: #00d4aa;
+  --color-accent-glow: rgba(0,212,170,0.12);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.6);
 }
+
+[data-theme="light"] {
+  --color-bg: #f4f4f8;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0f0f6;
+  --color-surface-offset: #e8e8f0;
+  --color-divider: #d4d4e0;
+  --color-border: #c8c8d8;
+  --color-text: #1a1a2e;
+  --color-text-muted: #555570;
+  --color-text-faint: #9090a8;
+  --color-primary: #5a48e0;
+  --color-primary-hover: #4535cc;
+  --color-primary-glow: rgba(90,72,224,0.12);
+  --color-accent: #00a888;
+  --color-accent-glow: rgba(0,168,136,0.1);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.14);
+}
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; scroll-padding-top: 80px; }
+body {
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: background var(--transition), color var(--transition);
+}
+img { display: block; max-width: 100%; }
+a, button { transition: color var(--transition), background var(--transition), opacity var(--transition), box-shadow var(--transition); }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+
+header {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-4) var(--space-8);
+  background: oklch(from var(--color-bg) l c h / 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-divider);
+}
+.logo {
+  display: flex; align-items: center; gap: var(--space-3);
+  font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700;
+  color: var(--color-text); text-decoration: none; letter-spacing: -0.03em;
+}
+.logo-dot { color: var(--color-primary); }
+nav { display: flex; align-items: center; gap: var(--space-6); }
+nav a { font-size: var(--text-sm); color: var(--color-text-muted); text-decoration: none; font-weight: 500; }
+nav a:hover { color: var(--color-text); }
+.theme-toggle {
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-md); color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+.theme-toggle:hover { color: var(--color-text); background: var(--color-surface-2); }
+
+.hero {
+  padding: clamp(var(--space-16), 8vw, var(--space-20)) var(--space-8);
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-display); font-size: var(--text-xs);
+  color: var(--color-accent); letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: var(--space-6); padding: var(--space-1) var(--space-3);
+  background: var(--color-accent-glow); border-radius: var(--radius-full);
+  border: 1px solid rgba(0,212,170,0.2);
+}
+.hero h1 {
+  font-family: var(--font-display); font-size: var(--text-hero); font-weight: 700;
+  line-height: 1.05; letter-spacing: -0.04em; color: var(--color-text); margin-bottom: var(--space-6);
+}
+.hero h1 span { color: var(--color-primary); }
+.hero p {
+  font-size: var(--text-lg); color: var(--color-text-muted); line-height: 1.6;
+  max-width: 44ch; margin-bottom: var(--space-8);
+}
+.hero-cta { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-3) var(--space-6); border-radius: var(--radius-md);
+  font-size: var(--text-sm); font-weight: 600; text-decoration: none; border: none;
+}
+.btn-primary {
+  background: var(--color-primary); color: #fff;
+  box-shadow: 0 0 20px var(--color-primary-glow);
+}
+.btn-primary:hover { background: var(--color-primary-hover); }
+.btn-ghost {
+  color: var(--color-text-muted); border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.btn-ghost:hover { color: var(--color-text); border-color: var(--color-text-muted); }
+
+.hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+.hero-grid-art {
+  width: 100%; aspect-ratio: 4/3; background: var(--color-surface);
+  border-radius: var(--radius-xl); border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg); overflow: hidden;
+  display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(2,1fr);
+  gap: var(--space-2); padding: var(--space-4);
+}
+.grid-cell {
+  border-radius: var(--radius-md); background: var(--color-surface-2);
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end;
+  padding: var(--space-3); border: 1px solid var(--color-divider);
+  position: relative; overflow: hidden;
+}
+.grid-cell::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--color-primary-glow), transparent 70%);
+  opacity: 0; transition: opacity 0.3s;
+}
+.grid-cell:hover::before { opacity: 1; }
+.grid-cell:nth-child(1) { grid-column: span 2; }
+.grid-cell:nth-child(4) { grid-column: span 2; }
+.cell-tag { font-family: var(--font-display); font-size: 0.6rem; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-1); }
+.cell-title { font-size: var(--text-xs); font-weight: 600; color: var(--color-text); line-height: 1.3; }
+.cell-bar { position: absolute; top: var(--space-3); right: var(--space-3); width: 8px; height: 8px; border-radius: 50%; }
+.pres-thumb-number { position: absolute; bottom: var(--space-4); right: var(--space-6); font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; letter-spacing: -0.05em; line-height: 1; opacity: 0.08; pointer-events: none; }
+
+.section { padding: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-8); max-width: 1200px; margin: 0 auto; }
+.section-label { font-family: var(--font-display); font-size: var(--text-xs); color: var(--color-text-faint); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--space-4); }
+.section-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; color: var(--color-text); letter-spacing: -0.03em; margin-bottom: var(--space-8); max-width: 20ch; }
+.divider { border: none; border-top: 1px solid var(--color-divider); margin: 0 var(--space-8); }
+
+.presentations-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-8); flex-wrap: wrap; gap: var(--space-4); }
+.filter-row { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.filter-btn {
+  padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
+  font-size: var(--text-sm); border: 1px solid var(--color-border);
+  color: var(--color-text-muted); background: transparent; font-weight: 500;
+}
+.filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.filter-btn.active {
+  background: var(--color-primary); border-color: var(--color-primary);
+  color: #fff; box-shadow: 0 0 16px var(--color-primary-glow);
+}
+.presentations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px,100%), 1fr));
+  gap: var(--space-6);
+}
+.pres-card {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl); overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+  text-decoration: none; color: inherit; display: flex; flex-direction: column;
+}
+.pres-card:hover { box-shadow: var(--shadow-lg); border-color: var(--color-primary); transform: translateY(-2px); }
+.pres-thumb { aspect-ratio: 16/9; background: var(--color-surface-2); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.pres-thumb-inner { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); padding: var(--space-6); }
+.pres-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-lg); flex-shrink: 0; }
+.pres-body { padding: var(--space-5); flex: 1; display: flex; flex-direction: column; gap: var(--space-2); }
+.pres-meta { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); color: var(--color-text-faint); font-family: var(--font-display); }
+.pres-category { padding: 2px var(--space-2); border-radius: var(--radius-full); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.pres-title { font-family: var(--font-display); font-size: var(--text-base); font-weight: 700; color: var(--color-text); line-height: 1.3; letter-spacing: -0.02em; }
+.pres-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
+.pres-footer { display: flex; justify-content: space-between; align-items: center; padding: var(--space-4) var(--space-5); border-top: 1px solid var(--color-divider); }
+.pres-date { font-size: var(--text-xs); color: var(--color-text-faint); font-family: var(--font-display); }
+.pres-link-icon { display: flex; align-items: center; gap: var(--space-1); font-size: var(--text-xs); font-weight: 600; }
+
+.empty-state { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: var(--space-20) var(--space-8); color: var(--color-text-muted); }
+.empty-state-icon { color: var(--color-text-faint); margin-bottom: var(--space-4); }
+.empty-state h3 { font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-2); font-family: var(--font-display); }
+.empty-state p { max-width: 36ch; }
+
+.how-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px,100%), 1fr)); gap: var(--space-6); }
+.step-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-6); }
+.step-num { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary); opacity: 0.3; line-height: 1; margin-bottom: var(--space-3); }
+.step-title { font-family: var(--font-display); font-size: var(--text-base); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-2); }
+.step-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+.step-code { margin-top: var(--space-3); padding: var(--space-3); background: var(--color-surface-offset); border-radius: var(--radius-md); font-family: var(--font-display); font-size: var(--text-xs); color: var(--color-accent); border: 1px solid var(--color-divider); white-space: pre-wrap; word-break: break-all; }
+
+footer { padding: var(--space-8); border-top: 1px solid var(--color-divider); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4); max-width: 1200px; margin: 0 auto; }
+.footer-text { font-size: var(--text-sm); color: var(--color-text-faint); }
+.footer-accent { color: var(--color-primary); }
+
+@media (max-width: 768px) {
+  header { padding: var(--space-3) var(--space-4); }
+  nav a { display: none; }
+  .hero { grid-template-columns: 1fr; gap: var(--space-8); padding: var(--space-12) var(--space-4); }
+  .hero-visual { order: -1; }
+  .section { padding: var(--space-10) var(--space-4); }
+  .presentations-header { flex-direction: column; align-items: flex-start; }
+  footer { padding: var(--space-6) var(--space-4); }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both; }
+.fade-up-1 { animation-delay: 0.1s; } .fade-up-2 { animation-delay: 0.2s; }
+.fade-up-3 { animation-delay: 0.3s; } .fade-up-4 { animation-delay: 0.4s; }
+@media (prefers-reduced-motion: reduce) { .fade-up { animation: none; } }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="container">
-    <div class="nav-inner">
-      <div class="logo">
-        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="VTech logo">
-          <rect width="36" height="36" rx="8" fill="rgba(0,245,196,0.08)"/>
-          <path d="M8 11L14 25L18 16L22 25L28 11" stroke="#00F5C4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="14" y="8" width="8" height="2" rx="1" fill="rgba(0,245,196,0.4)"/>
-        </svg>
-        <span class="logo-text">V·TECH</span>
-      </div>
-      <div class="nav-links">
-        <a href="#presentations">Презентации</a>
-        <a href="#how-it-works">Как это работает</a>
-        <a href="https://github.com/olegbuselru/vtech-presentations" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-  </div>
-</nav>
+<a href="#main" style="position:absolute;left:-999px;top:-999px;z-index:9999;padding:8px 16px;background:var(--color-primary);color:#fff;font-weight:700;border-radius:4px;text-decoration:none;" onfocus="this.style.left='8px';this.style.top='8px';" onblur="this.style.left='-999px';this.style.top='-999px';">Перейти к содержимому</a>
 
-<main>
-  <section class="hero">
-    <div class="container">
-      <div class="hero-label">Технобренд VTech</div>
-      <h1>Все <span>презентации</span><br>в одном месте</h1>
-      <p class="hero-sub">Слайды с митапов, воркшопов и ивентов VTech. Каждая новая презентация появляется автоматически — через Perplexity + GitHub Pull Request.</p>
-      <div class="hero-actions">
-        <a href="#presentations" class="btn btn-primary">Смотреть презентации</a>
-        <a href="https://github.com/olegbuselru/vtech-presentations" target="_blank" rel="noopener" class="btn btn-ghost">GitHub репо</a>
-      </div>
-      <div class="stats">
-        <div class="stat-item"><span class="stat-num" id="statCount">1</span><span class="stat-label">Презентация</span></div>
-        <div class="stat-item"><span class="stat-num">AI</span><span class="stat-label">Генерация</span></div>
-        <div class="stat-item"><span class="stat-num">Auto</span><span class="stat-label">Деплой</span></div>
-      </div>
-    </div>
-  </section>
+<header>
+  <a href="#" class="logo" aria-label="ВИ.Тех — главная">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="8" fill="var(--color-primary)" opacity="0.15"/>
+      <path d="M8 10 L16 22 L24 10" stroke="var(--color-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M12 10 L16 16 L20 10" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    ВИ<span class="logo-dot">.</span>ТЕХ
+  </a>
+  <nav>
+    <a href="#presentations">Презентации</a>
+    <a href="#how">Как добавить</a>
+    <a href="https://github.com/olegbuselru/vtech-presentations" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <button class="theme-toggle" aria-label="Переключить тему" data-theme-toggle>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+  </nav>
+</header>
 
-  <section class="section" id="presentations">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Презентации <span>VTech</span></h2>
-        <span class="count-badge" id="countBadge">1 слайд-дек</span>
-      </div>
-      <div class="pres-grid">
-        <!-- PRESENTATIONS_START -->
-<article class="pres-card" onclick="window.open('presentations/2026-05-06-vtech-intro/index.html','_blank')">
-  <div class="pres-card-img" aria-label="Что такое VTech: технобренд нового поколения">
-    <span class="pres-placeholder">VT</span>
-    <span class="slides-badge">12 slides</span>
-  </div>
-  <div class="pres-card-body">
-    <div class="pres-card-meta">
-      <span class="pres-date">2026-05-06</span>
-      <span class="pres-event">VTech Launch</span>
-    </div>
-    <h3 class="pres-title">Что такое VTech: технобренд нового поколения</h3>
-    <p class="pres-desc">Вводная презентация о миссии, ценностях и направлениях VTech — девелопер-сообщества с AI-фокусом.</p>
-    <div class="pres-tags"><span class="tag">VTech</span> <span class="tag">DevRel</span> <span class="tag">AI</span> <span class="tag">Community</span></div>
-  </div>
-</article>
-<!-- PRESENTATIONS_END -->
-      </div>
-    </div>
-  </section>
+<main id="main">
 
-  <div class="container" id="how-it-works">
-    <div class="how-section">
-      <div class="how-title">Как добавить новую <span>презентацию</span></div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-label">Даёшь задачу Perplexity</div>
-          <div class="step-desc">Ссылка на этот репо + описание новой презентации (тема, ивент, ключевые тезисы)</div>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-label">Perplexity читает DESIGN.md</div>
-          <div class="step-desc">Агент забирает дизайн-гайд, создаёт HTML-презентацию в стиле VTech через Reveal.js</div>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-label">Pull Request в GitHub</div>
-          <div class="step-desc">Perplexity создаёт PR с новой папкой presentations/ и meta.json</div>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <div class="step-label">Merge → Автодеплой</div>
-          <div class="step-desc">После принятия PR — GitHub Actions деплоит сайт на GitHub Pages автоматически</div>
-        </div>
-      </div>
+<section class="hero" aria-label="Главный экран">
+  <div class="hero-text">
+    <div class="hero-eyebrow fade-up">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="5"/></svg>
+      Технобренд ВИ.ТЕХ
+    </div>
+    <h1 class="fade-up fade-up-1">База<br><span>знаний</span><br>сообщества</h1>
+    <p class="fade-up fade-up-2">Все презентации, доклады и материалы VTech в одном месте. Новые слайды — через Perplexity одним сообщением.</p>
+    <div class="hero-cta fade-up fade-up-3">
+      <a href="#presentations" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+        Смотреть презентации
+      </a>
+      <a href="#how" class="btn btn-ghost">Как добавить →</a>
     </div>
   </div>
+
+  <div class="hero-visual fade-up fade-up-4" aria-hidden="true">
+    <div class="hero-grid-art">
+      <div class="grid-cell"><div class="cell-bar" style="background:var(--color-primary);opacity:0.7;"></div><div class="cell-tag">Featured</div><div class="cell-title">DevRel Strategy 2025</div><div class="pres-thumb-number">01</div></div>
+      <div class="grid-cell"><div class="cell-bar" style="background:var(--color-accent);opacity:0.7;"></div><div class="cell-tag">AI</div><div class="cell-title">LLM Agents</div><div class="pres-thumb-number">02</div></div>
+      <div class="grid-cell"><div class="cell-bar" style="background:var(--color-accent);opacity:0.5;"></div><div class="cell-tag">Community</div><div class="cell-title">Митап формат</div><div class="pres-thumb-number">03</div></div>
+      <div class="grid-cell"><div class="cell-bar" style="background:var(--color-primary);opacity:0.5;"></div><div class="cell-tag">Dev</div><div class="cell-title">MCP Servers</div><div class="pres-thumb-number">04</div></div>
+      <div class="grid-cell"><div class="cell-bar" style="background:#e879f9;opacity:0.5;"></div><div class="cell-tag">New</div><div class="cell-title">+</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section" id="presentations" aria-label="Презентации">
+  <div class="presentations-header">
+    <div>
+      <div class="section-label">Архив</div>
+      <h2 class="section-title" style="margin-bottom:0;">Все презентации</h2>
+    </div>
+    <div class="filter-row" role="group" aria-label="Фильтр по категориям">
+      <button class="filter-btn active" data-filter="all" onclick="filterPresentations(this,'all')">Все</button>
+      <button class="filter-btn" data-filter="devrel" onclick="filterPresentations(this,'devrel')">DevRel</button>
+      <button class="filter-btn" data-filter="ai" onclick="filterPresentations(this,'ai')">AI</button>
+      <button class="filter-btn" data-filter="community" onclick="filterPresentations(this,'community')">Community</button>
+      <button class="filter-btn" data-filter="dev" onclick="filterPresentations(this,'dev')">Dev</button>
+    </div>
+  </div>
+  <div class="presentations-grid" id="presGrid"></div>
+</section>
+
+<hr class="divider">
+
+<section class="section" id="how" aria-label="Как добавить презентацию">
+  <div class="section-label">Workflow</div>
+  <h2 class="section-title">Как добавить презентацию</h2>
+  <div class="how-grid">
+    <div class="step-card"><div class="step-num">01</div><div class="step-title">Напишите Perplexity</div><div class="step-desc">Дайте ссылку на репозиторий и опишите новую презентацию в одном сообщении.</div><div class="step-code">Репо: github.com/olegbuselru/vtech-presentations
+Тема: «DevRel метрики 2026»
+Дата: 2026-05-10
+Категория: devrel</div></div>
+    <div class="step-card"><div class="step-num">02</div><div class="step-title">Perplexity создаёт PR</div><div class="step-desc">Ассистент генерирует файл презентации по DESIGN.md и открывает Pull Request в репозиторий.</div><div class="step-code">presentations/devrel-metrics-2026/
+├── index.html
+└── meta.json</div></div>
+    <div class="step-card"><div class="step-num">03</div><div class="step-title">Вы мёрджите PR</div><div class="step-desc">Просмотрите и примите Pull Request на GitHub. GitHub Pages обновит сайт автоматически.</div><div class="step-code">✓ PR merged → GitHub Actions
+✓ Site deployed in ~2 min</div></div>
+    <div class="step-card"><div class="step-num">04</div><div class="step-title">Карточка на сайте</div><div class="step-desc">Новая презентация появляется в галерее автоматически — карточка, дата, категория, ссылка.</div><div class="step-code">// presentations/index.json обновляется
+// галерея читает его при загрузке</div></div>
+  </div>
+</section>
+
 </main>
 
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-copy">© 2026 VTech — Технобренд девелопер-сообщества</span>
-      <a href="https://github.com/olegbuselru/vtech-presentations" target="_blank" rel="noopener" class="footer-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        olegbuselru/vtech-presentations
-      </a>
-    </div>
-  </div>
+  <span class="footer-text">© 2026 <span class="footer-accent">ВИ.ТЕХ</span> — технобренд Олега Бусэль</span>
+  <a href="https://github.com/olegbuselru/vtech-presentations" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" style="padding:var(--space-2) var(--space-4);font-size:var(--text-xs);">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+    GitHub
+  </a>
 </footer>
 
+<script>
+(function(){
+  const html = document.documentElement;
+  const btn = document.querySelector('[data-theme-toggle]');
+  let theme = 'dark';
+  html.setAttribute('data-theme', theme);
+  if(btn) btn.addEventListener('click', () => {
+    theme = theme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', theme);
+  });
+})();
+
+const categoryLabels = { all:'Все', devrel:'DevRel', ai:'AI', community:'Community', dev:'Dev' };
+const iconSVG = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`;
+let allPresentations = [];
+let activeFilter = 'all';
+
+function formatDate(d) {
+  return new Date(d).toLocaleDateString('ru-RU', {year:'numeric',month:'long',day:'numeric'});
+}
+
+function filterPresentations(btn, filter) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = filter;
+  renderPresentations();
+}
+
+function renderPresentations() {
+  const grid = document.getElementById('presGrid');
+  const list = activeFilter === 'all' ? allPresentations : allPresentations.filter(p => p.category === activeFilter);
+  if (!list.length) {
+    grid.innerHTML = `<div class="empty-state"><div class="empty-state-icon">${iconSVG}</div><h3>Презентаций пока нет</h3><p>В этой категории ещё нет материалов.</p></div>`;
+    return;
+  }
+  grid.innerHTML = list.map((p, i) => `
+    <a href="${p.url || '#'}" class="pres-card" ${p.url ? 'target="_blank" rel="noopener noreferrer"' : ''} aria-label="${p.title}">
+      <div class="pres-thumb">
+        <div class="pres-thumb-inner" style="background:linear-gradient(135deg,${p.color}15,${p.color}05)">
+          <div class="pres-icon" style="background:${p.color}20;color:${p.color}">${iconSVG}</div>
+        </div>
+        <div class="pres-thumb-number" style="color:${p.color}">${String(i+1).padStart(2,'0')}</div>
+      </div>
+      <div class="pres-body">
+        <div class="pres-meta">
+          <span class="pres-category" style="background:${p.color}20;color:${p.color};border:1px solid ${p.color}30">${categoryLabels[p.category]||p.category}</span>
+          <span>${p.slides||'—'} слайдов</span>
+        </div>
+        <div class="pres-title">${p.title}</div>
+        <div class="pres-desc">${p.description}</div>
+      </div>
+      <div class="pres-footer">
+        <span class="pres-date">${formatDate(p.date)}</span>
+        <span class="pres-link-icon" style="color:${p.color}">Смотреть <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>`).join('');
+}
+
+fetch('presentations/index.json')
+  .then(r => r.ok ? r.json() : [])
+  .catch(() => [])
+  .then(data => { allPresentations = data; renderPresentations(); });
+</script>
 </body>
 </html>
